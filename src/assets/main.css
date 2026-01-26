@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import url(./Home/index.css);
+/* src/assets/main.css */
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg); /* 负角度 = 逆时针 */
+  }
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 20s linear infinite;
+}
