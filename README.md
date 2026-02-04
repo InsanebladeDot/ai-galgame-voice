@@ -1,25 +1,9 @@
 <div align="center">
 
-<h1>GPT-SoVITS-WebUI</h1>
-A Powerful Few-shot Voice Conversion and Text-to-Speech WebUI.<br><br>
+<h1>ai-galgame-voice</h1>
+A Powerful Few-shot Voice Conversion and Text-to-Speech WebUI with <strong>Interactive Galgame Experience</strong>.<br><br>
 
 [![madewithlove](https://img.shields.io/badge/made_with-%E2%9D%A4-red?style=for-the-badge&labelColor=orange)](https://github.com/RVC-Boss/GPT-SoVITS)
-
-<a href="https://trendshift.io/repositories/7033" target="_blank"><img src="https://trendshift.io/api/badge/repositories/7033" alt="RVC-Boss%2FGPT-SoVITS | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-
-<!-- img src="https://counter.seku.su/cmoe?name=gptsovits&theme=r34" /><br> -->
-
-[![Python](https://img.shields.io/badge/python-3.10--3.12-blue?style=for-the-badge&logo=python)](https://www.python.org)
-[![GitHub release](https://img.shields.io/github/v/release/RVC-Boss/gpt-sovits?style=for-the-badge&logo=github)](https://github.com/RVC-Boss/gpt-sovits/releases)
-
-[![Train In Colab](https://img.shields.io/badge/Colab-Training-F9AB00?style=for-the-badge&logo=googlecolab)](https://colab.research.google.com/github/RVC-Boss/GPT-SoVITS/blob/main/Colab-WebUI.ipynb)
-[![Huggingface](https://img.shields.io/badge/免费在线体验-free_online_demo-yellow.svg?style=for-the-badge&logo=huggingface)](https://lj1995-gpt-sovits-proplus.hf.space/)
-[![Image Size](https://img.shields.io/docker/image-size/xxxxrt666/gpt-sovits/latest?style=for-the-badge&logo=docker)](https://hub.docker.com/r/xxxxrt666/gpt-sovits)
-
-[![简体中文](https://img.shields.io/badge/简体中文-阅读文档-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e)
-[![English](https://img.shields.io/badge/English-Read%20Docs-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://rentry.co/GPT-SoVITS-guide#/)
-[![Change Log](https://img.shields.io/badge/Change%20Log-View%20Updates-blue?style=for-the-badge&logo=googledocs&logoColor=white)](https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/en/Changelog_EN.md)
-[![License](https://img.shields.io/badge/LICENSE-MIT-green.svg?style=for-the-badge&logo=opensourceinitiative)](https://github.com/RVC-Boss/GPT-SoVITS/blob/main/LICENSE)
 
 **English** | [**中文简体**](./docs/cn/README.md) | [**日本語**](./docs/ja/README.md) | [**한국어**](./docs/ko/README.md) | [**Türkçe**](./docs/tr/README.md)
 
@@ -27,21 +11,67 @@ A Powerful Few-shot Voice Conversion and Text-to-Speech WebUI.<br><br>
 
 ---
 
-## Features:
+## 🌟 What’s New: Integrated Interactive Galgame System
 
-1. **Zero-shot TTS:** Input a 5-second vocal sample and experience instant text-to-speech conversion.
+This project extends **GPT-SoVITS v2 ProPlus** into a full-fledged **AI-powered visual novel platform**, combining voice synthesis, speech recognition, and animated characters for immersive storytelling:
 
-2. **Few-shot TTS:** Fine-tune the model with just 1 minute of training data for improved voice similarity and realism.
+- ✨ **Live2D Integration**: Animated 2D characters respond dynamically to dialogue and user interaction.
+- 🎙️ **Speech-to-Text (STT)**: Speak naturally—your voice is transcribed in real time for AI input.
+- 🔊 **High-Quality TTS**: Powered by GPT-SoVITS with **zero-shot/few-shot voice cloning** (5s sample → realistic speech).
+- 💬 **AI-Powered Dialogue**: Chat with characters using LLM-driven conversation logic.
+- 📖 **Galgame Story Mode**: Play through branching narratives where choices affect story outcomes and character relationships.
 
-3. **Cross-lingual Support:** Inference in languages different from the training dataset, currently supporting English, Japanese, Korean, Cantonese and Chinese.
+> Perfect for creating personalized AI companions, interactive visual novels, or voice-enabled roleplay experiences.
 
-4. **WebUI Tools:** Integrated tools include voice accompaniment separation, automatic training set segmentation, Chinese ASR, and text labeling, assisting beginners in creating training datasets and GPT/SoVITS models.
+---
 
-**Check out our [demo video](https://www.bilibili.com/video/BV12g4y1m7Uw) here!**
+## 🔑 Core Features
 
-Unseen speakers few-shot fine-tuning demo:
+1. **Zero-shot TTS**  
+   Generate natural-sounding speech from just a **5-second voice sample**—no training required.
 
-https://github.com/RVC-Boss/GPT-SoVITS/assets/129054828/05bee1fa-bdd8-4d85-9350-80c060ab47fb
+2. **Few-shot TTS**  
+   Achieve higher voice fidelity with only **1 minute of reference audio** for fine-tuning.
 
-**RTF(inference speed) of GPT-SoVITS v2 ProPlus**:
-0.028 tested in 4060Ti, 0.014 tested in 4090 (1400words~=4min, inference time is 3.36s), 0.526 in M4 CPU. You can test our [huggingface demo](https://lj1995-gpt-sovits-proplus.hf.space/) (half H200) to experience high-speed inference .
+3. **Cross-lingual Support**  
+   Synthesize speech in **Chinese, English, Japanese, Korean, and Cantonese**—even if the voice model was trained on another language.
+
+4. **All-in-One WebUI Toolkit**  
+   Includes:
+   - Voice/accompaniment separation
+   - Automatic audio segmentation
+   - Chinese ASR & text labeling
+   - One-click model training for GPT/SoVITS
+
+5. **Real-Time Performance**  
+   - **RTF (Real-Time Factor)**:  
+     - **0.014** on RTX 4090 (1400 words ≈ 4 min spoken in **3.36s**)  
+     - **0.028** on RTX 4060 Ti  
+     - **0.526** on Apple M4 CPU  
+   - Try our [Hugging Face Demo](https://lj1995-gpt-sovits-proplus.hf.space/) (running on H200)!
+
+---
+
+## ▶️ Demo
+
+- **Project Showcase**: [Watch on Bilibili (BV12g4y1m7Uw)](https://www.bilibili.com/video/BV12g4y1m7Uw)  
+- **Few-shot Voice Cloning Example**:  
+  ![Demo](https://github.com/RVC-Boss/GPT-SoVITS/assets/129054828/05bee1fa-bdd8-4d85-9350-80c060ab47fb)
+
+---
+
+## 🚀 Get Started
+
+1. Clone this repo  
+2. Install dependencies (`pip install -r requirements.txt`)  
+3. Launch WebUI: `python webui.py`  
+4. Use the **"Galgame Mode"** tab to load Live2D models, start conversations, and experience AI-driven stories with lifelike voices.
+
+> 💡 Tip: Record your own voice or upload a sample to clone any character’s speaking style instantly!
+
+---
+
+## ❤️ Acknowledgements
+
+Built upon the amazing work of [GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS) by RVC-Boss.  
+Made with ❤ for creators, developers, and AI storytellers.
