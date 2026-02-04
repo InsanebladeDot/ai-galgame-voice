@@ -16,22 +16,20 @@
         >
           <i class="el-icon-upload text-pink-500 text-3xl mb-2"></i>
           <div class="text-pink-700 font-bold">上传参考音频</div>
-          <div class="text-gray-500 text-sm mt-1">Wav / MP3 </div>
+          <div class="text-gray-500 text-sm mt-1">Wav / MP3</div>
         </el-upload>
-    
-
       </div>
 
       <!-- 右侧：垂直布局（文本框 + 按钮） -->
       <div class="right-section">
         <!-- 粘贴文本区域 -->
         <el-form-item label="提示文本" class="mb-4">
-        <el-input
-          v-model="PostTTS.prompt_text"
-          type="textarea"
-          :rows="2"
-          placeholder="用于声纹提取的参考文本，通常与合成文本相同"
-        />
+          <el-input
+            v-model="PostTTS.prompt_text"
+            type="textarea"
+            :rows="2"
+            placeholder="用于声纹提取的参考文本，通常与合成文本相同"
+          />
         </el-form-item>
         <!-- 提示语言 -->
         <el-form-item label="提示语言" class="mb-4">
@@ -42,12 +40,12 @@
           </el-select>
         </el-form-item>
         <el-form-item label="合成文本" class="mb-4">
-         <el-input
-           v-model="PostTTS.text"
-           type="textarea"
-           :rows="2"
-           placeholder="要合成的语音内容"
-         />
+          <el-input
+            v-model="PostTTS.text"
+            type="textarea"
+            :rows="2"
+            placeholder="要合成的语音内容"
+          />
         </el-form-item>
         <!-- 合成语言 -->
         <el-form-item label="合成语言" class="mb-6">
@@ -58,17 +56,12 @@
           </el-select>
         </el-form-item>
         <!-- 开始讲解按钮 -->
-        <el-button
-          type="primary"
-          size="large"
-          class="start-btn"
-          @click="handleSubmit()"
-        >
+        <el-button type="primary" size="large" class="start-btn" @click="handleSubmit()">
           一键开始
         </el-button>
 
-            <el-form-item label="生成的语音" class="mb-4">
-            <audio controls :src="audioUrl" />
+        <el-form-item label="生成的语音" class="mb-4">
+          <audio controls :src="audioUrl" />
         </el-form-item>
       </div>
     </div>
@@ -78,17 +71,17 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
-import type {TTSPayload} from '@/types/Voice/Post'
-import {generateTTS} from '@/Api/Voice/Start/TTS/index'
+import type { TTSPayload } from '@/types/Voice/TTS/Post'
+import { generateTTS } from '@/Api/Voice/TTS/Start/TTS/index'
 // 表单数据
 const PostTTS = reactive<TTSPayload>({
-    refer_wav_path: 'F:/AI/GPT-SoVITS/GPT-SoVITS-Test-resource/module/流萤/流萤/参考音频/别回头。我确定他的目标就是你，从我们和加拉赫先生告别起就没跟丢过.wav',
-    prompt_text: '别回头。我确定他的目标就是你，从我们和加拉赫先生告别起就没跟丢过',
-    prompt_language: 'zh',
-    text: '',
-    text_language: 'zh'
+  refer_wav_path:
+    'F:/AI/GPT-SoVITS/GPT-SoVITS-Test-resource/module/流萤/参考音频/别回头。我确定他的目标就是你，从我们和加拉赫先生告别起就没跟丢过.wav',
+  prompt_text: '别回头。我确定他的目标就是你，从我们和加拉赫先生告别起就没跟丢过',
+  prompt_language: 'zh',
+  text: '',
+  text_language: 'zh',
 })
-
 
 const handleFileChange = (file: any) => {
   console.log(file)
@@ -106,8 +99,7 @@ const handleSubmit = async () => {
   try {
     const response = await generateTTS(PostTTS)
     const blob = new Blob([response.data], { type: 'audio/wav' }) // 或 'audio/mpeg'，根据后端实际返回类型调整
-     audioUrl.value = URL.createObjectURL(blob)
-
+    audioUrl.value = URL.createObjectURL(blob)
   } catch (error) {
     console.error('TTS 请求失败:', error)
     ElMessage.error('语音合成失败，请重试')

@@ -1,6 +1,8 @@
 <!-- src/components/home/HomeButtons.vue -->
 <template>
-  <div class="absolute bottom-4 left-4 z-30 pointer-events-auto origin-bottom-left transition-transform scale-90 md:scale-100">
+  <div
+    class="absolute bottom-4 left-4 z-30 pointer-events-auto origin-bottom-left transition-transform scale-90 md:scale-100"
+  >
     <div class="flex flex-wrap items-end gap-2 md:gap-4">
       <HomeButton
         v-for="item in dialogButtons"
@@ -34,7 +36,7 @@ import PartnerSelector from '@/components/Roles/PartnerSelector.vue'
 import Start from '@/components/Home/HomeButtons/Start/index.vue'
 import Setting from '@/components/Home/HomeButtons/Setting/index.vue'
 import Community from '@/components/Home/HomeButtons/Community/index.vue'
-import TTSGenerator from './HomeButtons/Start/TTSGenerator.vue'
+// import TTSGenerator from './HomeButtons/Start/TTSGenerator.vue'
 import { useRoleStore } from '@/stores/Roles/Role/index'
 
 const roleStore = useRoleStore()
@@ -47,7 +49,7 @@ const dialogButtons = computed(() => [
     mainText: '开始',
     subText: 'Start Game',
     dialogTitle: 'TTS 转换',
-    component: TTSGenerator
+    component: Start,
   },
   {
     id: 'partner',
@@ -56,7 +58,7 @@ const dialogButtons = computed(() => [
     // ✅ 动态获取当前角色名，支持 undefined 回退
     subText: roleStore.role?.name || 'Nene',
     dialogTitle: '选择角色',
-    component: PartnerSelector
+    component: PartnerSelector,
   },
   {
     id: 'settings',
@@ -64,7 +66,7 @@ const dialogButtons = computed(() => [
     mainText: '设置',
     subText: 'Settings',
     dialogTitle: '游戏设置',
-    component: Setting
+    component: Setting,
   },
   {
     id: 'community',
@@ -72,13 +74,13 @@ const dialogButtons = computed(() => [
     mainText: '社群',
     subText: 'Community',
     dialogTitle: '加入社群',
-    component: Community
-  }
+    component: Community,
+  },
 ])
 
-const currentItem = ref<typeof dialogButtons.value[0] | null>(null)
+const currentItem = ref<(typeof dialogButtons.value)[0] | null>(null)
 
-const openDialog = (item: typeof dialogButtons.value[0]) => {
+const openDialog = (item: (typeof dialogButtons.value)[0]) => {
   currentItem.value = item
 }
 

@@ -28,8 +28,19 @@
       fill="none"
       viewBox="0 0 24 24"
     >
-      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      ></path>
     </svg>
   </button>
 </template>
@@ -37,8 +48,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useCurConversationStore } from '@/stores/story/Cur_conversation/index'
-import { generateTTS } from '@/Api/Voice/Start/TTS/index'
-import type { TTSPayload } from '@/types/Voice/Post'
+import { generateTTS } from '@/Api/Voice/TTS/Start/TTS/index'
+import type { TTSPayload } from '@/types/Voice/TTS/Post'
 import { ElMessage } from 'element-plus'
 import { getVoiceKeyByText } from '@/util/modalParticle/tool'
 
@@ -63,9 +74,9 @@ const getAiMadeVoiceUrl = async (): Promise<string | null> => {
     prompt_text: '【正常】哎呀真是有趣的设计呢，偶尔尝试下这样的风格也不错',
     prompt_language: 'zh',
     text: curText,
-    text_language: 'zh'
+    text_language: 'zh',
   }
-  console.log('请求文件路径',PostTTS.refer_wav_path)
+  console.log('请求文件路径', PostTTS.refer_wav_path)
   try {
     loading.value = true
     const response = await generateTTS(PostTTS)
@@ -85,7 +96,7 @@ const playVoice = async () => {
 
   // 1. 获取新语音 URL
   const audioUrl = await getAiMadeVoiceUrl()
-  console.log('返回的blob地址',audioUrl)
+  console.log('返回的blob地址', audioUrl)
   if (!audioUrl) return
 
   // 2. 停止当前播放

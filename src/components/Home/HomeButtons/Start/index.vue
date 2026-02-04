@@ -1,131 +1,91 @@
+<!-- components/ChoicePopup.vue -->
 <template>
-  <div class="topic-selection-container">
-    <!-- 主容器：水平 flex -->
-    <div class="main-layout">
-      <!-- 左侧：上传区域 -->
-      <div class="upload-section">
-        <el-upload
-          action="#"
-          :auto-upload="false"
-          :limit="1"
-          accept=".pdf,.txt,.json"
-          drag
-          :on-change="handleFileChange"
-          :show-file-list="false"
-          class="upload-box"
-        >
-          <i class="el-icon-upload text-pink-500 text-3xl mb-2"></i>
-          <div class="text-pink-700 font-bold">上传参考音频</div>
-          <div class="text-gray-500 text-sm mt-1">Wav / MP3 </div>
-        </el-upload>
-      </div>
+  <div class="relative h-full w-full">
+    <!-- 装饰：左上角小花 -->
+    <div class="absolute top-2 left-4 w-6 h-6 text-pink-300 opacity-80">💐</div>
 
-      <!-- 右侧：垂直布局（文本框 + 按钮） -->
-      <div class="right-section">
-        <!-- 粘贴文本区域 -->
-        <el-input
-          type="textarea"
-          :rows="6"
-          placeholder="书写你的台词文本"
-          v-model="pastedContent"
-          class="paste-input"
+    <!-- 装饰：右上角小星 -->
+    <div class="absolute top-2 right-4 w-5 h-5 text-yellow-300 opacity-70">★</div>
+
+    <!-- 装饰：左下角小花 -->
+    <div class="absolute bottom-2 left-4 w-5 h-5 text-pink-200 opacity-60">🌸</div>
+
+    <!-- 装饰：右下角小星 -->
+    <div class="absolute bottom-2 right-4 w-5 h-5 text-yellow-200 opacity-60">✨</div>
+
+    <!-- 装饰：顶部中央柔光 -->
+    <div
+      class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-2 bg-gradient-to-r from-pink-200 via-transparent to-pink-200 opacity-50"
+    ></div>
+
+    <!-- 装饰：底部中央波浪线 -->
+    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-2">
+      <svg
+        viewBox="0 0 100 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="text-pink-100"
+      >
+        <path
+          d="M10,10 Q20,0 30,10 T50,10 T70,10 T90,10"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
         />
+      </svg>
+    </div>
 
-        <!-- 开始讲解按钮 -->
-        <el-button
-          type="primary"
-          size="large"
-          @click="startExplanation"
-          class="start-btn"
-        >
-          一键开始
-        </el-button>
-      </div>
+    <!-- 原始内容（保持不变） -->
+    <div class="flex flex-col items-center justify-center h-full w-full px-4 py-6">
+      <h2 class="text-lg font-bold text-pink-600 mb-4 text-center">请选择你的旅程 ❤️</h2>
+
+      <button
+        @click="RouteJumpSearch('game')"
+        class="w-full py-3 px-6 bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white font-medium rounded-xl shadow-md transition-all duration-200"
+      >
+        <div class="flex items-center justify-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span>进入故事章节</span>
+        </div>
+      </button>
+
+      <button
+        @click="RouteJumpSearch('ai_chat')"
+        class="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-medium rounded-xl shadow-md transition-all duration-200 mt-3"
+      >
+        <div class="flex items-center justify-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.338-3.12A8.001 8.001 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            ></path>
+          </svg>
+          <span>进行 AI 对话</span>
+        </div>
+      </button>
+
+      <p class="text-xs text-gray-500 mt-4 text-center">
+        爱莉希雅会一直在这里，陪你走过每一个选择❤️
+      </p>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-
-const pastedContent = ref('')
-const uploadedFile = ref<File | null>(null)
-
-function handleFileChange(file: any) {
-  if (file.raw) uploadedFile.value = file.raw
-}
-
-function startExplanation() {
-  if (uploadedFile.value || pastedContent.value.trim()) {
-    alert('开始讲解！')
-  } else {
-    alert('请上传文件或粘贴内容')
-  }
-}
+<script setup lang="ts">
+import { RouteJumpSearch } from '@/util/router/index'
 </script>
-
-<style scoped>
-.topic-selection-container {
-  padding: 20px;
-}
-
-/* 主布局：水平 flex */
-.main-layout {
-  display: flex;
-  gap: 24px; /* 左右间距 */
-  align-items: stretch; /* 让左右高度一致 */
-}
-
-/* 左侧上传区 */
-.upload-section {
-  flex: 1;
-  min-width: 280px;
-  border: 2px dashed #ff69b4;
-  border-radius: 12px;
-  padding: 32px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.upload-box {
-  width: 100%;
-  cursor: pointer;
-}
-
-/* 右侧：垂直布局 */
-.right-section {
-  flex: 1;
-  min-width: 280px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* 文本框和按钮的间距 */
-}
-
-.paste-input {
-  flex: 1; /* 占据剩余空间 */
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.start-btn {
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff6b9d, #e53935);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
-  transition: opacity 0.2s;
-}
-
-.start-btn:hover {
-  opacity: 0.9;
-}
-</style>
