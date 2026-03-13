@@ -1,20 +1,26 @@
+import { useSystemSettingStore } from '@/stores/Setting/SystemSetting'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 
 // 创建 axios 实例
 const STTInterface = axios.create({
-  baseURL: import.meta.env.VITE_API_VOICE_STT_URL,
-  // baseURL: "http://localhost:8081",
   timeout: 500000,
 })
 
 // 请求拦截器
 STTInterface.interceptors.request.use(
   (config) => {
-    const storedToken = localStorage.getItem('token')
-    if (storedToken) {
-      config.headers['token'] = storedToken
+    const systemSettingStore = useSystemSettingStore()
+    const { customAiModelEnabled, customAiModel } = systemSettingStore
+    
+    // 1. 动态设置 TTS baseURL
+    if (customAiModelEnabled && customAiModel.ttsBaseUrl) {
+      config.baseURL = customAiModel.ttsBaseUrl
+    } else {
+      config.baseURL = import.meta.env.VITE_API_VOICE_TTS_URL || ''
     }
+
+
     return config
   },
   (error) => {

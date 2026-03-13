@@ -1,4 +1,4 @@
-import {DialogueType,type Character, type Dialogue} from '@/types/Story/index'
+import {DialogueType,type Character, type Dialogue, type Story} from '@/types/Story/index'
 import {Feng_Yu} from '@/Data/Roles/default'
 import { Feng_Yu_posture } from '@/stores/image/Pose/Feng_Yu'
 
@@ -7,6 +7,9 @@ import Room from '@/assets/Background/Room.jpg'
 import classroom from '@/assets/Background/教室.jpg'
 //音乐
  
+
+
+
 export const starDustLibraryStory: Dialogue[] = [
   // —————— 开场：进入图书馆 ——————
   {
@@ -176,6 +179,13 @@ export const starDustLibraryStory: Dialogue[] = [
     bgm: undefined,
   }
 ];
+
+
+export const startDustLibraryStory: Story = {
+  id: '0',
+  title: '星屑图书馆',
+  dialogues: starDustLibraryStory
+}
 
 export { DialogueType };  export type { Character };
 

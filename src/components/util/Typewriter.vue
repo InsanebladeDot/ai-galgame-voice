@@ -5,7 +5,8 @@
 
 <script lang="ts" setup>
 import { ref, watch, onBeforeUnmount } from 'vue'
-
+import { useSystemSettingStore } from '@/stores/Setting/SystemSetting'
+const systemSettingStore = useSystemSettingStore()
 const props = defineProps<{
   fullText: string
   trigger?: boolean // v-model:trigger 的值
@@ -40,7 +41,7 @@ const startTyping = () => {
     if (currentIndex < props.fullText.length) {
       displayedText.value += props.fullText[currentIndex]
       currentIndex++
-      typingTimer = setTimeout(typeNext, 40)
+      typingTimer = setTimeout(typeNext, Math.abs(100 - systemSettingStore.textSpeed))
     } else {
       isTypingDone = true
     }

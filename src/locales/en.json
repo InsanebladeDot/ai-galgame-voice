@@ -1,0 +1,76 @@
+{
+  "Home": {
+    "Buttons": {
+      "start": "Start",
+      "Role": "Character",
+      "saves": "Saves",
+      "community": "Community",
+      "settings": "Settings"
+    },
+    "startPage": {
+      "title": "TTS Conversion",
+      "subtitle": "Choose your journey ❤️",
+      "primaryButton": "Enter Story Chapter",
+      "secondaryButton": "Start AI Conversation",
+      "footerText": "I'll always be here, walking with you through every choice ❤️"
+    },
+    "RolePage": {
+      "title": "Select Character"
+    },
+    "SaveManagementPage": {
+      "title": "Save Management",
+      "subtitle": "Script Library",
+      "noData": "NO DATA",
+      "cardTitle": "Card Title",
+      "cardDescription": "This is a description of the card content. It can be a brief summary or any relevant information.",
+      "importButton": "Import Save",
+      "searchPlaceholder": "Search title / summary / category / ID",
+      "statusNormal": "Normal",
+      "statusError": "Error",
+      "statusLoading": "Loading...",
+      "totalSaveCount": "Total {count} saves"
+    },
+    "CommunityPage": {
+      "title": "Community",
+      "subtitle": "Share your stories, explore others' creations, and find inspiration and connection ❤️"
+    },
+    "SettingsPage": {
+      "title": "Settings",
+      "subtitle": "Adjust your preferences and personalize your experience ❤️",
+      "saveAndClose": "Save & Close",
+      "cancel": "Cancel",
+      "volume": "Volume",
+      "textSpeed": "Text Speed",
+      "language": "Language",
+      "aiOutputLanguage": "AI Output Language",
+      "aiOutputLanguagePlaceholder": "Leave empty or enter 'default' to follow site language. You may also specify English, French, etc.",
+      "defaultLanguage": "Default",
+      "aiSettings": "AI Settings",
+      "customModel": "Custom AI Model",
+      "baseURL": "BASE URL",
+      "apiKey": "API KEY",
+      "modelName": "MODEL NAME",
+      "ttsSttBaseUrl": "TTS & STT BASE URL",
+      "warningTitle": "Important Notice & Disclaimer",
+      "warningContent": [
+        "Your API Key will be sent via encrypted HTTPS requests to our server for forwarding. We do NOT store any Keys or conversation data.",
+        "We recommend using a Key with usage limits. If possible, strongly suggest setting an IP whitelist for your key.",
+        "The site bears NO responsibility for costs, account bans, or key leaks resulting from third-party model usage. Enabling this option indicates your acceptance of these terms."
+      ],
+      "musicSettings": "Music Settings",
+      "presetStyles": "Preset Styles",
+      "uploadCustomMusic": "Upload Custom Music",
+      "uploadLocalMusic": "Upload Local Music",
+      "supportedFormats": "Supports MP3, WAV, etc. (max 50MB)",
+      "selectFile": "Select File",
+      "languageChinese": "中文",
+      "languageEnglish": "English",
+      "languageJapanese": "日本語",
+      "languageRussian": "Русский",
+      "musicPeaceOfMind": "Peace of Mind",
+      "musicLost": "Lost",
+      "musicRecollection": "Recollection",
+      "savedSuccessfully": "Settings saved successfully!"
+    }
+  }
+}

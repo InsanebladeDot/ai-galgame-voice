@@ -32,6 +32,11 @@ const router = createRouter({
       name: 'Recirder',
       component: Voice,
     },
+    {
+      path: '/vosk_websocket',
+      name: 'vosk_websocket',
+      component: () => import('@/views/VoskWebsocket.vue'),
+    }
   ],
 })
 

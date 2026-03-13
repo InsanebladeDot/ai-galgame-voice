@@ -53,3 +53,8 @@ export interface ChoiceDialogue extends BaseDialogue {
 }
 
 export type Dialogue = BaseDialogue | ChoiceDialogue
+export type Story = {
+  id: string
+  title: string
+  dialogues: Dialogue[] 
+}

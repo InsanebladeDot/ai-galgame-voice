@@ -1,0 +1,74 @@
+{
+  "Home": {
+    "Buttons": {
+      "start": "开始",
+      "Role": "角色",
+      "saves": "存档",
+      "community": "社区",
+      "settings": "设置"
+    },
+    "startPage": {
+      "title": "TTS转换",
+      "subtitle": "请选择你的旅程 ❤️",
+      "primaryButton": "进入故事章节",
+      "secondaryButton": "进行 AI 对话",
+      "footerText": "会一直在这里，陪你走过每一个选择 ❤️"
+    },
+    "RolePage": {
+      "title": "选择角色"
+    },
+    "SaveManagementPage": {
+      "title": "存档管理",
+      "subtitle": "剧本库 / SCRIPT LIBRARY",
+      "noData": "NO DATA",
+      "cardTitle": "Card Title",
+      "cardDescription": "This is a description of the card content. It can be a brief summary or any relevant information.",
+      "importButton": "导入存档",
+      "searchPlaceholder": "搜索标题 / 摘要 / 分类 / ID",
+      "statusNormal": "正常",
+      "statusError": "异常",
+      "statusLoading": "加载中...",
+      "totalSaveCount": "共 {count} 个存档"
+    },
+    "CommunityPage": {
+      "title": "社区",
+      "subtitle": "在这里，你可以分享你的故事，或者浏览其他人的创作，寻找灵感和共鸣 ❤️"
+    },
+    "SettingsPage": {
+      "title": "设置",
+      "subtitle": "在这里，你可以调整你的偏好设置，个性化你的体验 ❤️",
+      "saveAndClose": "保存并关闭",
+      "cancel": "取消",
+      "volume": "音量",
+      "textSpeed": "文字速度",
+      "language": "语言 (Language)",
+      "aiOutputLanguage": "AI 输出语言",
+      "aiOutputLanguagePlaceholder": "留空或填 default 表示跟随网站语言，也可填写 English、French 等",
+      "defaultLanguage": "默认",
+      "aiSettings": "AI设置",
+      "customModel": "自定义 AI 模型",
+      "baseURL": "BASE URL",
+      "apiKey": "API KEY",
+      "modelName": "MODEL NAME",
+      "ttsSttBaseUrl": "TTS && STT BASE URL",
+      "warningTitle": "温馨提示与免责声明",
+      "warningContent": [
+        "1.您的 API Key 将通过加密 HTTPS 请求发送至我们的服务器用于请求转发。本站不会存储您的任何 Key 或对话数据。",
+        "2.建议使用设置了额度限制的 Key，如果可以，强烈建议给您的key设置IP白名单。",
+        "3.如因使用第三方模型产生的费用或账号封禁风险，或导致key的泄露，本站不承担任何责任。开启此项即表示您已阅读并同意。"
+      ],
+      "musicSettings": "音乐设置",
+      "presetStyles": "预设风格",
+      "uploadCustomMusic": "自定义上传",
+      "uploadLocalMusic": "上传本地音乐",
+      "supportedFormats": "支持 MP3, WAV 等格式，最大 50MB",
+      "selectFile": "Select File",
+      "languageChinese": "中文",
+      "languageEnglish": "English",
+      "languageJapanese": "日本語",
+      "languageRussian": "Русский",
+      "musicPeaceOfMind": "Peace of Mind",
+      "savedSuccessfully": "设置已保存！"
+    }
+  }
+}

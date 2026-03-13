@@ -63,10 +63,15 @@ function encodeWAV(samples: Float32Array): Blob {
   view.setUint32(40, samples.length * 2, true)
 
   const volume = 0.9
-  for (let i = 0; i < samples.length; i++) {
-    const s = Math.max(-1, Math.min(1, samples[i] * volume))
-    view.setInt16(44 + i * 2, s < 0 ? s * 0x8000 : s * 0x7fff, true)
+
+for (let i = 0; i < samples.length; i++) {
+  // 现在 TS 知道 samples 肯定存在且有 .length
+  const value = samples[i];
+  if (value !== undefined) {
+    const s = Math.max(-1, Math.min(1, value * volume));
+    view.setInt16(44 + i * 2, s < 0 ? s * 0x8000 : s * 0x7fff, true);
   }
+}
 
   return new Blob([view], { type: 'audio/wav' })
 }

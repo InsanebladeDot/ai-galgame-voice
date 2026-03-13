@@ -16,7 +16,11 @@
   </div>
 
   <!-- 自定义弹窗 -->
-  <div v-if="currentItem" class="custom-overlay" @click="closeDialog">
+  <div
+    v-if="currentItem && !currentItem.ispopUp"
+    class="custom-overlay flex items-center justify-center"
+    @click="closeDialog"
+  >
     <div class="custom-dialog" @click.stop>
       <div class="custom-dialog-header">
         <h3>{{ currentItem.dialogTitle }}</h3>
@@ -27,54 +31,98 @@
       </div>
     </div>
   </div>
+
+  <div
+    v-else-if="currentItem && currentItem.fullScreen && currentItem.ispopUp"
+    class="custom-overlay"
+  >
+    <FullScreen>
+      <component :is="currentItem.component" @close-dialog="closeDialog" />
+    </FullScreen>
+  </div>
+
+  <div
+    v-else-if="currentItem && currentItem.ispopUp"
+    class="custom-overlay flex items-center justify-center"
+    @click="closeDialog"
+  >
+    <div class="custom-dialog" @click.stop>
+      <component :is="currentItem.component" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue' // 👈 引入 computed
+import { getLocaleDictionary } from '@/util/i18n/i18n_dictionary'
+import { useSystemSettingStore } from '@/stores/Setting/SystemSetting'
 import HomeButton from './HomeButton.vue'
 import PartnerSelector from '@/components/Roles/PartnerSelector.vue'
+import Saves from './Saves/index.vue'
 import Start from '@/components/Home/HomeButtons/Start/index.vue'
 import Setting from '@/components/Home/HomeButtons/Setting/index.vue'
 import Community from '@/components/Home/HomeButtons/Community/index.vue'
+import FullScreen from '@/components/Home/fullScreen/index.vue'
+
 // import TTSGenerator from './HomeButtons/Start/TTSGenerator.vue'
 import { useRoleStore } from '@/stores/Roles/Role/index'
 
 const roleStore = useRoleStore()
+const systemSettingStore = useSystemSettingStore()
+const d = getLocaleDictionary(systemSettingStore.language)
 
 // ✅ 改为 computed，响应 role 变化
 const dialogButtons = computed(() => [
   {
     id: 'start',
     isPrimary: true,
-    mainText: '开始',
+    ispopUp: false, //是否仅使用弹窗功能？
+    fullScreen: false, // 是否全屏显示（仅对 ispopUp=true 有效）
+    mainText: d.Home.Buttons.start,
     subText: 'Start Game',
-    dialogTitle: 'TTS 转换',
+    dialogTitle: d.Home.startPage.title,
     component: Start,
   },
   {
     id: 'partner',
     isPrimary: false,
-    mainText: '搭档',
+    ispopUp: false, //是否仅使用弹窗功能？
+    fullScreen: false, // 是否全屏显示（仅对 ispopUp=true 有效）
+    mainText: d.Home.Buttons.Role,
     // ✅ 动态获取当前角色名，支持 undefined 回退
     subText: roleStore.role?.name || 'Nene',
-    dialogTitle: '选择角色',
+    dialogTitle: d.Home.RolePage.title,
     component: PartnerSelector,
   },
   {
-    id: 'settings',
+    id: 'Saves',
     isPrimary: false,
-    mainText: '设置',
-    subText: 'Settings',
-    dialogTitle: '游戏设置',
-    component: Setting,
+    ispopUp: true, //是否仅使用弹窗功能？
+    fullScreen: true, // 是否全屏显示（仅对 ispopUp=true 有效）
+    mainText: d.Home.Buttons.saves,
+    subText: 'Save Management',
+    dialogTitle: d.Home.SaveManagementPage.title,
+    component: Saves,
   },
   {
     id: 'community',
     isPrimary: false,
-    mainText: '社群',
+    ispopUp: false, //是否仅使用弹窗功能？
+    fullScreen: false, // 是否全屏显示（仅对 ispopUp=true 有效）
+    mainText: d.Home.Buttons.community,
     subText: 'Community',
-    dialogTitle: '加入社群',
+    dialogTitle: d.Home.CommunityPage.title,
     component: Community,
+  },
+  {
+    id: 'settings',
+    isPrimary: false,
+    fullScreen: false, // 是否全屏显示（仅对 ispopUp=true 有效）
+    mainText: d.Home.Buttons.settings,
+    ispopUp: true, //是否仅使用弹窗功能？
+    subText: 'Settings',
+    dialogTitle: d.Home.SettingsPage.title,
+    component: Setting,
   },
 ])
 
@@ -95,12 +143,9 @@ const closeDialog = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(244, 114, 182, 0.6);
-  backdrop-filter: blur(2px);
+  overflow: hidden;
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(244, 114, 182, 0.6);
 }
 
 .custom-dialog {

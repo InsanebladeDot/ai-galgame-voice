@@ -1,6 +1,6 @@
 // composables/useTTS.ts
 import STTInterface from '@/Api/Voice/STT/index' // 您的 axios 实例
-import type { STTResponse } from '@/types/Voice/STT/post'
+import type { STTResponse } from '@/types/Voice/STT/Post'
 import type { AxiosResponse } from 'axios'
 
 export const transcribeAudio = async (audio: File | Blob): Promise<STTResponse> => {

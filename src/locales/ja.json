@@ -1,0 +1,76 @@
+{
+  "Home": {
+    "Buttons": {
+      "start": "スタート",
+      "Role": "キャラクター",
+      "saves": "セーブデータ",
+      "community": "コミュニティ",
+      "settings": "設定"
+    },
+    "startPage": {
+      "title": "TTS変換",
+      "subtitle": "あなたの旅路を選んでください ❤️",
+      "primaryButton": "ストーリーチャプターへ",
+      "secondaryButton": "AIと会話する",
+      "footerText": "いつもここにいて、あなたの選択をそっと見守っています ❤️"
+    },
+    "RolePage": {
+      "title": "キャラクターを選択"
+    },
+    "SaveManagementPage": {
+      "title": "セーブ管理",
+      "subtitle": "シナリオライブラリ",
+      "noData": "データなし",
+      "cardTitle": "カードタイトル",
+      "cardDescription": "カード内容の説明文。概要や関連情報などを簡潔に記載できます。",
+      "importButton": "セーブデータをインポート",
+      "searchPlaceholder": "タイトル / 概要 / カテゴリ / IDで検索",
+      "statusNormal": "正常",
+      "statusError": "エラー",
+      "statusLoading": "読み込み中...",
+      "totalSaveCount": "合計 {count} 件のセーブデータ"
+    },
+    "CommunityPage": {
+      "title": "コミュニティ",
+      "subtitle": "あなたの物語を共有したり、他の創作を閲覧して、インスピレーションと共感を見つけましょう ❤️"
+    },
+    "SettingsPage": {
+      "title": "設定",
+      "subtitle": "好みに合わせて設定を調整し、あなただけの体験をカスタマイズしましょう ❤️",
+      "saveAndClose": "保存して閉じる",
+      "cancel": "キャンセル",
+      "volume": "音量",
+      "textSpeed": "テキスト速度",
+      "language": "言語",
+      "aiOutputLanguage": "AI出力言語",
+      "aiOutputLanguagePlaceholder": "空欄または「default」と入力でサイト言語に従います。English、French なども指定可能",
+      "defaultLanguage": "デフォルト",
+      "aiSettings": "AI設定",
+      "customModel": "カスタムAIモデル",
+      "baseURL": "BASE URL",
+      "apiKey": "API KEY",
+      "modelName": "MODEL NAME",
+      "ttsSttBaseUrl": "TTS & STT BASE URL",
+      "warningTitle": "ご注意と免責事項",
+      "warningContent": [
+        "API Key は暗号化された HTTPS 経由で当社サーバーに転送され、キーまたは会話データは一切保存されません。",
+        "利用制限を設定した Key の使用を推奨します。可能であれば、IP ホワイトリストの設定を強くお勧めします。",
+        "第三者モデル利用による費用・アカウント停止・キー漏洩などのリスクについて、当サイトは一切の責任を負いません。有効化により、本内容に同意したものとみなされます。"
+      ],
+      "musicSettings": "音楽設定",
+      "presetStyles": "プリセットスタイル",
+      "uploadCustomMusic": "カスタム音楽をアップロード",
+      "uploadLocalMusic": "ローカル音楽をアップロード",
+      "supportedFormats": "MP3, WAV など対応（最大 50MB）",
+      "selectFile": "ファイルを選択",
+      "languageChinese": "中文",
+      "languageEnglish": "English",
+      "languageJapanese": "日本語",
+      "languageRussian": "Русский",
+      "musicPeaceOfMind": "Peace of Mind",
+      "musicLost": "Lost",
+      "musicRecollection": "回想",
+      "savedSuccessfully": "設定を保存しました！"
+    }
+  }
+}

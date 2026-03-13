@@ -66,7 +66,7 @@
           <div
             v-for="(height, i) in barHeights"
             :key="i"
-            class="w-[2px] bg-white rounded-full transition-all duration-100 ease-out"
+            class="w-[2px] bg-black rounded-full transition-all duration-100 ease-out"
             :style="{ height: `${height}%` }"
           ></div>
         </div>
@@ -74,7 +74,7 @@
         <!-- 语音模式下的提示文字 -->
         <div
           v-if="isVoiceMode && !isRecording && !isRecordingFinished"
-          class="absolute inset-0 flex items-center justify-center text-sm text-gray-600 pointer-events-none"
+          class="w-full flex items-center justify-center text-sm text-gray-600 pointer-events-none"
         >
           按住说话
         </div>

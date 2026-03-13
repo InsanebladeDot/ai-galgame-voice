@@ -21,7 +21,7 @@ onMounted(() => {
   >
     <HomeBackground />
     <HomeTitle />
-    <HomeCharacter :character-img="roleStore.role?.avatar || nene" />
+    <HomeCharacter :character-img="roleStore.role?.avatar || nene" docked-position="right" />
     <HomeButtons />
   </div>
 </template>

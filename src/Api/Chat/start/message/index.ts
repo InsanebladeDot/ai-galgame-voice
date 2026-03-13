@@ -24,5 +24,6 @@ export interface BeginMessagePayload {
 }
 
 export const beginMessage = (payload: BeginMessagePayload) => {
+
   return ChatInterface.post('/v1/messages', payload)
 }

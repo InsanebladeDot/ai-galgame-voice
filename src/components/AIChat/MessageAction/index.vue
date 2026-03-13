@@ -63,7 +63,7 @@ const getTTSConfig = (text: string): TTSPayload => ({
   prompt_text: '哎呀真是有趣的设计呢，偶尔尝试下这样的风格也不错',
   prompt_language: 'zh',
   text_language: 'zh',
-  text,
+  text: text,
 })
 
 // =============== 工具函数 ===============
